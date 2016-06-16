@@ -1,0 +1,7 @@
+#!/bin/bash -ex
+
+# Switch to the app root dir
+cd /var/www/html
+
+# Dump autoload
+php composer.phar dump-autoload

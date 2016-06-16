@@ -1,0 +1,10 @@
+---
+sudo: required
+services:
+  - docker
+install:
+  - ./.build.bash
+script:
+  - docker ps | grep -q php && echo "CONTAINER BUILT & RUNNING SUCCESSFULLY" || echo "CONTAINER NOT RUNNING"
+after_success:
+ - ./.publish.bash

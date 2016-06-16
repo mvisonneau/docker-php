@@ -1,0 +1,11 @@
+#!/bin/bash -ex
+
+# Switch to the app root dir
+cd /var/www/html
+
+# Only on the first time
+if [ ! -e composer.phar ]; then
+  # Insall and run composer
+  curl -sS https://getcomposer.org/installer | php
+  php composer.phar install
+fi

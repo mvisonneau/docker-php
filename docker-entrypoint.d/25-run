@@ -1,0 +1,4 @@
+#!/bin/bash -ex
+
+# START PHP-FPM
+php-fpm

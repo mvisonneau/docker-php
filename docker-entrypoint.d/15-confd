@@ -1,0 +1,24 @@
+#!/bin/bash -ex
+
+# URLS
+export ADP_FRONTEND_FQDN=${ADP_FRONTEND_FQDN:-"localhost"}
+export ADP_FRONTEND_PORT=${ADP_FRONTEND_PORT:-8080}
+export ADP_API_FQDN=${ADP_API_FQDN:-"localhost"}
+export ADP_API_PORT=${ADP_API_PORT:-8081}
+
+# POSTGRES
+export POSTGRES_SERVER=${POSTGRES_SERVER:-"postgres"}
+export POSTGRES_PORT=${POSTGRES_PORT:-5432}
+export POSTGRES_DB=${POSTGRES_DB:-"adp"}
+export POSTGRES_USER=${POSTGRES_USER:-"adp"}
+export POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-"(SeCuRe_P@sSw0rd!)"}
+
+# MEMCACHED
+if [ -n ${MEMCACHED_CFG_ENDPOINT} ]; then
+  export MEMCACHED_HOSTS=`/etc/confd/bin/getElasticacheHosts.php ${MEMCACHED_CFG_ENDPOINT}`
+else
+  export MEMCACHED_HOSTS=${MEMCACHED_HOSTS:-"memcached:11211"}
+fi
+
+# CONFIGURE
+/usr/local/bin/confd -onetime -backend env

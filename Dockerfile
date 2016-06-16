@@ -32,4 +32,5 @@ postgresql-dev \
 # RUNTIME
 ADD ./docker-entrypoint /docker-entrypoint
 ADD ./docker-entrypoint.d /docker-entrypoint.d
-ENTRYPOINT ['/docker-entrypoint']
+ENTRYPOINT '/docker-entrypoint'
+CMD []

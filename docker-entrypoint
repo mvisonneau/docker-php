@@ -6,6 +6,4 @@ if [ -d "${DIR}" ]; then
   /bin/run-parts --exit-on-error "${DIR}"
 fi
 
-if [ $? -eq 0 ]; then
-  exec "$@"
-fi
+exec "$@"

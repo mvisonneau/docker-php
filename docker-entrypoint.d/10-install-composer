@@ -3,9 +3,12 @@
 # Switch to the app root dir
 cd /var/www/html
 
-# Only on the first time
+# Install composer
 if [ ! -e composer.phar ]; then
-  # Insall and run composer
   curl -sS https://getcomposer.org/installer | php
+fi
+
+# Run composer
+if [ -e composer.json ]; then
   php composer.phar install
 fi

@@ -4,4 +4,6 @@
 cd /var/www/html
 
 # Dump autoload
-php composer.phar dump-autoload
+if [ -e composer.json ]; then
+  php composer.phar dump-autoload
+fi

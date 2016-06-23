@@ -5,7 +5,7 @@
 
 ## Features
 
-This image is based onto `php:7.0.7-fpm-alpine` is contains several libraries :
+This image is based onto `php:7.0.7-fpm-alpine`, it contains several libraries :
 - AWS Elasticache/Memcached Library for PHP
 - gd
 - iconv
